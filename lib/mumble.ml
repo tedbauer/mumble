@@ -9,7 +9,7 @@ let bind (p: 'a parser) (f: 'a -> 'b parser): ('b parser) = fun (cs: char list) 
    
 let (>>=) (p: 'a parser) (f: 'a -> 'b parser) = bind p f
    
-let zero: char parser = fun cs -> []
+let zero: 'a parser = fun cs -> []
                                  
 let (++) (p: 'a parser) (q: 'a parser) = fun cs ->
   p cs @ q cs
